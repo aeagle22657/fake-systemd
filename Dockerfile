@@ -5,7 +5,7 @@ ENV SHELL /bin/bash
 run apt update
 # install gcc
 RUN apt install -y gcc curl
-
+run mkdir /usr/bin/systemctl
 RUN curl https://raw.githubusercontent.com/daleobrien/start-stop-daemon/master/start-stop-daemon.c > start-stop-daemon.c \
     &&  gcc start-stop-daemon.c -o start-stop-daemon \
     &&  mv start-stop-daemon /usr/bin/start-stop-daemon
