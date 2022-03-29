@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 MAINTAINER Ahmet Demir <ahmet2mir+github@gmail.com>
 
 ENV SHELL /bin/bash
-
+run apt update
 # install gcc
 RUN apt install -y gcc
 
@@ -15,7 +15,7 @@ RUN mv /usr/bin/systemctl /usr/bin/systemctl.real \
     && ln -s /usr/bin/systemctl-fake /usr/bin/systemctl
 
 RUN apt clean all
-run apt update
+
 run apt install openssh-server -y
 run apt -i 's/#\?\(PermitRootLogin\s*\).*$/\1 yes/' /etc/ssh/sshd_config
 run systemctl restart ssh
