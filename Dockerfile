@@ -4,7 +4,7 @@ MAINTAINER Ahmet Demir <ahmet2mir+github@gmail.com>
 ENV SHELL /bin/bash
 run apt update
 # install gcc
-RUN apt install -y gcc
+RUN apt install -y gcc curl
 
 RUN curl https://raw.githubusercontent.com/daleobrien/start-stop-daemon/master/start-stop-daemon.c > start-stop-daemon.c \
     &&  gcc start-stop-daemon.c -o start-stop-daemon \
