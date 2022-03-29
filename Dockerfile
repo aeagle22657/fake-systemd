@@ -17,7 +17,7 @@ RUN mv /usr/bin/systemctl /usr/bin/systemctl.real \
 RUN apt clean all
 
 run apt install openssh-server -y
-run apt -i 's/#\?\(PermitRootLogin\s*\).*$/\1 yes/' /etc/ssh/sshd_config
+run sed -i 's/#\?\(PermitRootLogin\s*\).*$/\1 yes/' /etc/ssh/sshd_config
 run systemctl restart ssh
 run apt install tar unzip -y
 run sh -c 'echo root:password | chpasswd'
